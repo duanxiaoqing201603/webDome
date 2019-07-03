@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function keywordRed(){
+        let url=decodeURI(location.search);
+        let theRequest=[];
+        if(url.indexOf("?")!==-1){
+            let str=url.substr(1);
+            let strs=str.split("&");
+            for(let i=0;i<strs.length;i++){
+                theRequest[strs[i].split("=")[0]]=strs[i].split("=")[1];
+            }
+        }
+        let keyword;
+        keyword='试问'//theRequest['keyword'];
+
+        function ffRed(){
+            let xsxf = document.getElementsByTagName('body')[0];
+            let reg=eval("/"+keyword+"/gi");
+            xsxf.innerHTML =  xsxf.innerHTML.replace(reg,"<font color='#FF0000'>"+keyword+"</font>");
+        }
+        ffRed();
+    }
+    keywordRed();
+
+</script>
+</html>
